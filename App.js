@@ -18,6 +18,7 @@ import Home from "./Home";
 import Search from "./components/Search";
 import NewPost from './components/NewPost'
 import Router from './routes/Router';
+import Nav from './routes/Nav'
 
 
 

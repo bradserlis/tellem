@@ -3,9 +3,9 @@ import { AppRegistry, Text, View} from 'react-native';
 import { Container, Content, Header, Form, Input, Item, Button, Label } from 'native-base';
 
 
-export default class Home extends Component{
-	constructor(){
-		super();
+export default class Nav extends Component{
+	constructor(props){
+		super(props);
 		this.state = {
 			name:'brad'
 		}
@@ -13,33 +13,25 @@ export default class Home extends Component{
 	render(){
 		const { navigate } = this.props.navigation;
 		return(
-		<View>
-			<View>
+		<Container>
 			<Text style={{fontSize:20, margin:20}}> This is the Home Page </Text>
-			<Button style={{margin:5}}
-			rounded
-			iconLeft
-			info
+			<Button
+			warning
 			onPress={
 				() => navigate('Post', {name: 'Testing123'})
 			}>
 			<Text style={{color:'white', margin:5}}>To New Posts</Text>
 			</Button>
-			</View>
-			<View>
-			<Button style={{margin:5}}
-			rounded
-			iconRight
-			primary
+			<Button
+			success
 			onPress={
 				() => navigate('Search', {name: 'Search Page'})
 			}>
 			<Text style={{color:'white', margin:5}}>Search Results</Text>
 			</Button>
-		</View>
-		</View>
+		</Container>
 		)
 	}
 }
 
-AppRegistry.registerComponent('Home', () => Home);
+AppRegistry.registerComponent('Nav', () => Nav);

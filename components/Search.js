@@ -14,7 +14,6 @@ export default class Search extends Component{
 	render(){
 		return(
 			<Container>
-        <Header />
         <View>
           <DeckSwiper
             dataSource={this.state.posts}
