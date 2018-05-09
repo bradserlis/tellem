@@ -12,28 +12,27 @@ import {
   View,
   Navigator
 } from 'react-native';
+import * as firebase from 'firebase';
+import { base } from './components/base';
 import Home from "./Home";
-import Search from "./Search";
-import NewPost from './NewPost'
-import  { BrowserRouter as Router, Route } from 'react-router-dom';
+import Search from "./components/Search";
+import NewPost from './components/NewPost'
+import Router from './routes/Router';
+
+
 
 
 import { Container, Content, Header, Form, Input, Item, Button, Label } from 'native-base';
 
 export default class App extends Component {
+  constructor(){
+    super();
+  }
+
   render() {
     return (
       <Container style={styles.container}>
-      <Home message="something"/>
-      <NewPost />
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit meee App.js
-        </Text>
-        <Text style={styles.instructions}>
-        </Text>
+        <Router />
       </Container>
     );
   }
@@ -44,10 +43,5 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  }
 });
