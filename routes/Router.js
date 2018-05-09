@@ -16,6 +16,9 @@ const Router = StackNavigator({
 	},
 	Post: {
 		screen: NewPost
+	},
+	Search: {
+		screen: Search
 	}
 });
 

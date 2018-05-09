@@ -22,6 +22,13 @@ export default class Home extends Component{
 			}>
 			<Text style={{color:'white', margin:5}}>To New Posts</Text>
 			</Button>
+			<Button
+			success
+			onPress={
+				() => navigate('Search', {name: 'Search Page'})
+			}>
+			<Text style={{color:'white', margin:5}}>Search Results</Text>
+			</Button>
 		</View>
 		)
 	}
