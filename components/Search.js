@@ -18,7 +18,7 @@ export default class Search extends Component{
           <DeckSwiper
             dataSource={this.state.posts}
             renderItem={item =>
-              <Card style={{ elevation: 3 }}>
+              <Card style={{ elevation: 5 }}>
                 <CardItem>
                   <Left>
                     <Text> Thumbnail here </Text>
