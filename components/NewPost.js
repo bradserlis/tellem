@@ -37,7 +37,7 @@ export default class NewPost extends Component{
 
 	addPost= () =>{
 		let key = firebase.database().ref('/posts').push().key
-		firebase.database().ref('/posts').child(key).set({post:this.state.postContent})
+		firebase.database().ref('/posts').child(key).set(this.state.postContent)
 	}
 
 	postSubmit = (e)=>{

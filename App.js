@@ -21,8 +21,6 @@ import Router from './routes/Router';
 import Nav from './routes/Nav'
 
 
-
-
 import { Container, Content, Header, Form, Input, Item, Button, Label } from 'native-base';
 
 export default class App extends Component {

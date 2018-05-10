@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { AppRegistry, View } from 'react-native';
 import App from '../App';
 import { Container, Header, DeckSwiper, Card, CardItem, Thumbnail, Text, Left, Body } from 'native-base';
+import * as firebase from 'firebase';
+
 
 
 export default class Search extends Component{
@@ -11,6 +13,16 @@ export default class Search extends Component{
 			posts:['post1', 'post2', 'post3']
 		}
 	}
+
+  componentDidMount(){
+// Find all posts 
+var ref = firebase.database().ref("posts");
+ref.orderByKey().on("child_added", function(snapshot) {
+ console.log(snapshot.val());
+});
+
+  }
+
 	render(){
 		return(
 			<Container>
