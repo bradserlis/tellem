@@ -19,7 +19,7 @@ var firebaseconfig = {
   };
   firebase.initializeApp(firebaseconfig);
 
-var data=['person1', 'person2'];
+var data=[];
 
 export default class NewPost extends Component{
 
@@ -34,7 +34,13 @@ export default class NewPost extends Component{
 			newContact: ''
 		}
 	}
-
+	componentDidMount=()=>{
+	return firebase.database().ref('/posts').once('value').then(function(snapshot) {
+  	console.log(snapshot)
+});
+	const getData = () => {   
+}
+	}
 	addPost= () =>{
 		let key = firebase.database().ref('/posts').push().key
 		firebase.database().ref('/posts').child(key).set({post:this.state.postContent})
@@ -42,7 +48,6 @@ export default class NewPost extends Component{
 
 	postSubmit = (e)=>{
 		console.log('form was submitted', this.state)
-		console.log('here is the database details:', this.props.config )
 	}
 	render(){
 		
@@ -80,6 +85,7 @@ export default class NewPost extends Component{
 
         <Content>
         <List
+        enableEmptySections
         dataSource={this.ds.cloneWithRows(this.state.listViewData)}
         renderRow={data=>
         	<ListItem>
