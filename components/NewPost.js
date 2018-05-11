@@ -27,6 +27,7 @@ export default class NewPost extends Component{
 		this.state = {
 			postContent:''
 		}
+
 		this.ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
 		this.state = {
 			listViewData: data,
@@ -35,8 +36,10 @@ export default class NewPost extends Component{
 	}
 
 	addPost= () =>{
-		let key = firebase.database().ref('/posts').push().key
-		firebase.database().ref('/posts').child(key).set(this.state.postContent)
+let key = firebase.database().ref('/posts').push().key
+    firebase.database().ref('/posts').child(key).child('message').set({[key]:this.state.postContent})
+    firebase.database().ref('/posts').child(key).child('comments').push('')
+    firebase.database().ref('/posts').child(key).child('messageKey').set([key])
 	}
 
 	postSubmit = (e)=>{

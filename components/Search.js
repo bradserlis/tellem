@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { AppRegistry, View } from 'react-native';
 import App from '../App';
-import { Container, Header, DeckSwiper, Card, CardItem, Thumbnail, Text, Left, Body } from 'native-base';
+import { Container, Header, DeckSwiper, Card, CardItem, Thumbnail,
+  Text, Left, Body, Button } from 'native-base';
 import * as firebase from 'firebase';
 
 export default class Search extends Component{
@@ -41,18 +42,23 @@ export default class Search extends Component{
           <DeckSwiper
             dataSource={this.state.posts}
             renderItem={item =>
-              <Card style={{ elevation: 5, height:450 }}>
+              <Card style={{ elevation: 5, height:450}}>
                 <CardItem>
                   <Left>
                     <Body>
-                    <Text style={{textAlign: 'center', fontSize:30}}> Thumbnail here </Text>
-                      <Text>{item.text}</Text>
+                    <Text style={{textAlign: 'center', fontSize:30}}> Posts </Text>
                     </Body>
                   </Left>
                 </CardItem>
                   <CardItem>
                   <Text style={{fontStyle:'italic', fontFamily:'AvenirNext-Italic'}}>{item}</Text>
                 </CardItem>
+                <Button style={{alignSelf: 'center', margin:20}}
+                warning
+                rounded
+                >
+                <Text style={{fontSize:12, fontWeight:'bold'}}> Add a Comment </Text>
+                </Button>
               </Card>
             }
           />
