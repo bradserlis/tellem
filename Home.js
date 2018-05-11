@@ -15,8 +15,9 @@ export default class Home extends Component{
 		return(
 		<View>
 			<View>
-			<Text style={{fontSize:20, margin:20}}> This is the Home Page </Text>
+			<Text style={{fontSize:20, margin:20, textAlign: 'center'}}> This is the Home Page </Text>
 			<Button style={{margin:5}}
+			block
 			rounded
 			iconLeft
 			info
@@ -28,6 +29,7 @@ export default class Home extends Component{
 			</View>
 			<View>
 			<Button style={{margin:5}}
+			block
 			rounded
 			iconRight
 			primary

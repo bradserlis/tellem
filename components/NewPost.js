@@ -5,7 +5,6 @@ import { Container, Content, Header, Form, Input, Icon,
 	Item, Button, Label, Textarea, Body,
 	 Left, Right, Title, Subtitle, List,
  ListItem } from 'native-base';
-import base from './base'
 
 import * as firebase from 'firebase';
 
