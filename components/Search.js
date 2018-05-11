@@ -4,23 +4,34 @@ import App from '../App';
 import { Container, Header, DeckSwiper, Card, CardItem, Thumbnail, Text, Left, Body } from 'native-base';
 import * as firebase from 'firebase';
 
-
-
 export default class Search extends Component{
-	constructor(){
-		super();
+	constructor(props){
+		super(props);
 		this.state = {
-			posts:['post1', 'post2', 'post3']
+			posts: []
 		}
 	}
 
-  componentDidMount(){
-// Find all posts 
-var ref = firebase.database().ref("posts");
-ref.orderByKey().on("child_added", function(snapshot) {
- console.log(snapshot.val());
-});
 
+  componentWillMount=()=>{
+    let newList=[];
+      var that = this;
+    var ref = firebase.database().ref("posts");
+    ref.orderByKey().on("child_added", function(snapshot) {
+      console.log(snapshot.val(), typeof snapshot.val());
+      newList.push(snapshot.val());
+      console.log('new list is: ', newList)
+      that.setState({
+        posts: newList
+      })
+    })
+  } 
+    
+
+  componentDidMount= () => {
+    console.log('posts state = :', this.state.posts)
+    // this.setState({
+    // })
   }
 
 	render(){
