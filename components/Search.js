@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 import { AppRegistry, View } from 'react-native';
 import App from '../App';
-import { Container, Header, DeckSwiper, Card, CardItem, Thumbnail,
-  Text, Left, Body, Button } from 'native-base';
+import { Container, Header, DeckSwiper, Card, CardItem, Thumbnail, Text, Left, Body, Button } from 'native-base';
 import * as firebase from 'firebase';
 
-export default class Search extends Component{
-	constructor(props){
-		super(props);
-		this.state = {
-			posts: []
-		}
-	}
+export default class Search extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      posts: []
+    }
+    // this.componentWillMount = this.componentWillMount.bind(this)
+  }
 
 
-  componentWillMount=()=>{
+  componentWillMount = () => {
     let newList=[];
-      var that = this;
-    var ref = firebase.database().ref("posts");
+    let that = this;
+    let ref = firebase.database().ref('/');
     ref.orderByKey().on("child_added", function(snapshot) {
       console.log(snapshot.val(), typeof snapshot.val());
       newList.push(snapshot.val());
@@ -27,17 +27,23 @@ export default class Search extends Component{
       })
     })
   } 
+
     
+  render() {
+    let post = this.state.posts[0] || {comments:{}}
+    
+    console.log('this is post: ', post)
+    let commentsArray = Object.values(post.comments)
+    // console.log('this is commentsArray:', commentsArray)
+    // console.log(commentsArray[0])
+    // var reallyNow = Array.from(commentsArray)
 
-  componentDidMount= () => {
-    console.log('posts state = :', this.state.posts)
-    // this.setState({
-    // })
-  }
+    var mappedComments = commentsArray.map( function(comment, index) {
+      return <Text key={index}>{comment}</Text>;
+    })
 
-	render(){
-		return(
-			<Container>
+    return(
+      <Container>
         <View>
           <DeckSwiper
             dataSource={this.state.posts}
@@ -51,9 +57,14 @@ export default class Search extends Component{
                   </Left>
                 </CardItem>
                   <CardItem>
-                  <Text style={{fontStyle:'italic', fontFamily:'AvenirNext-Italic'}}>{item}</Text>
+                  <Text style={{fontStyle:'italic', fontFamily:'AvenirNext-Italic'}}>{item.message}</Text>
+                  <Text style={{fontStyle:'italic', fontFamily:'AvenirNext-Italic'}}>{item.messageKey}</Text>
+                  <View>
+                    {mappedComments}
+                  </View>
                 </CardItem>
                 <Button style={{alignSelf: 'center', margin:20}}
+
                 warning
                 rounded
                 >
@@ -65,7 +76,7 @@ export default class Search extends Component{
         </View>
       </Container>
     );
-  }
+  } // close render
 }
 
 AppRegistry.registerComponent('Search', () => Search);
