@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { AppRegistry, Text, View} from 'react-native';
-import { Container, Content, Header, Form, Input, Item, Button, Label } from 'native-base';
+import { Container, Content, Header, Form, Input, Item, Button,
+ Label, Left, Body, Right, Title } from 'native-base';
 
 
 export default class Home extends Component{
@@ -10,7 +11,7 @@ export default class Home extends Component{
 	render(){
 		const { navigate } = this.props.navigation;
 		return(
-		<View>
+		<Container>
 			<View>
 			<Text style={{fontSize:20, margin:20, textAlign: 'center'}}> This is the Home Page </Text>
 			<Button style={{margin:5}}
@@ -36,7 +37,7 @@ export default class Home extends Component{
 			<Text style={{color:'white', margin:5}}>Search Results</Text>
 			</Button>
 		</View>
-		</View>
+		</Container>
 		)
 	}
 }

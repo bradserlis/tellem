@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { AppRegistry, Text, View} from 'react-native';
-import { Container, Content, Header, Form, Input, Item, Button, Label } from 'native-base';
+import { Container, Content, Header, Form, Input, Item, Button, Label,
+ Left, Body, Right, Title } from 'native-base';
 
 
 export default class Nav extends Component{

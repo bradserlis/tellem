@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { AppRegistry, View } from 'react-native';
+import { AppRegistry, View, ScrollView } from 'react-native';
 import App from '../App';
+import Comments from './Comments';
 import { Container, Header, DeckSwiper, Card, CardItem, Thumbnail, Text, Left, Body, Button,
  List, ListItem, Form, Textarea } from 'native-base';
 import * as firebase from 'firebase';
@@ -9,8 +10,7 @@ export default class Search extends Component {
   constructor(props){
     super(props)
     this.state = {
-      posts: [],
-      newComment: ''
+      posts: []
     }
     // this.componentWillMount = this.componentWillMount.bind(this)
   }
@@ -21,32 +21,40 @@ export default class Search extends Component {
     let that = this;
     let ref = firebase.database().ref('/');
     ref.orderByKey().on("child_added", function(snapshot) {
-      console.log(snapshot.val(), typeof snapshot.val());
+      // console.log(snapshot.val(), typeof snapshot.val());
       newList.push(snapshot.val());
-      console.log('new list is: ', newList)
       that.setState({
         posts: newList,
       })
     })
   } 
 
-  addComment= () =>{
-   key = this.state.posts[4].messageKey;
-    console.log('this is the key: ', key)
-    firebase.database().ref('/'+key).child('comments').push(this.state.newComment);
-    this.setState({
-      newComment: ''
-    })
+updateCommentsList = (newComment, key) => {
+  let returnValue = firebase.database().ref('/'+key).child('comments').push(newComment);
 
+  let allPosts = this.state.posts;
+  let post = allPosts.filter(p => {
+    return p.messageKey === key;
+  })[0];
 
-    // firebase.database().ref('/'+ key).child('comments').push(this.state.newComment)
+  if(post){
+    allPosts = allPosts.filter(p => {
+      return p.messageKey != key;
+    });
+
+    post.comments[returnValue.key] = newComment;
+    allPosts.push(post);
+    this.setState({ posts: allPosts });
   }
+  else {
+    console.log('post with key', key, 'was not found');
+  }
+}
 
     
   render() {
     let post = this.state.posts[0] || {comments:{}}
     
-    console.log('this is post: ', post)
     let commentsArray = Object.values(post.comments)
     var mappedComments = commentsArray.map( function(comment, index) {
       return <Text key={index}>{comment}</Text>;
@@ -67,7 +75,9 @@ export default class Search extends Component {
                   </Left>
                 </CardItem>
                   <CardItem>
-                  <Text style={{fontStyle:'italic', fontFamily:'AvenirNext-Italic'}}>{item.message}</Text>
+                  <ScrollView>
+                    <Text style={{fontStyle:'italic', fontFamily:'AvenirNext-Italic'}}>{item.message}</Text>
+                  </ScrollView>
                 </CardItem>
                 <View
                 style={{
@@ -76,25 +86,9 @@ export default class Search extends Component {
                   marginBottom: 15
                   }}
                  />
-                  {mappedComments}
-                  <Form>
-            <Textarea
-            style={{backgroundColor:'white'}}
-             rowSpan={4}
-             bordered
-             onChangeText={(newComment) => this.setState({ newComment })}
-             placeholder="Enter new comment here..."
-            />
-                <Button style={{alignSelf: 'center', margin:20}}
-                onPress={() => this.addComment()}
-                warning
-                rounded
-                >
-                <Text style={{fontSize:12, fontWeight:'bold'}}> Add a Comment </Text>
-                </Button>
-            <Text style={{fontSize:10, color:'red', marginTop:30}}> {this.state.newComment}</Text>
-            </Form>
-              </Card>
+                 <Comments comments={item.comments} messageKey={item.messageKey} updateCommentsList={this.updateCommentsList} />
+
+            </Card>
             }
           />
         </View>
