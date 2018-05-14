@@ -10,8 +10,10 @@ import {
   StyleSheet,
   Text,
   View,
-  Navigator
+  Navigator,
+  Image, ImageBackground
 } from 'react-native';
+
 import * as firebase from 'firebase';
 import Home from "./Home";
 import Search from "./components/Search";
@@ -22,7 +24,8 @@ import styles from './styles'
 
 
 
-import { Container, Content, Header, Form, Input, Item, Button, Label } from 'native-base';
+
+import { Container, Content, Header, Form, Input, Item, Title, Button, Label, Left, Body, Right } from 'native-base';
 
 export default class App extends Component {
   constructor(props){
@@ -32,7 +35,12 @@ export default class App extends Component {
   render() {
     return (
       <Container>
-        <Router />
+      <View style={{flex:1}}>
+      <ImageBackground style={{flex:1, resizeMode:'cover', height: null, width: null}}
+      source={require('./img/rough_diagonal.png')}>
+      <Router />
+      </ImageBackground>
+      </View>
       </Container>
     );
   }

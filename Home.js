@@ -11,9 +11,16 @@ export default class Home extends Component{
 	render(){
 		const { navigate } = this.props.navigation;
 		return(
-		<Container>
+			<Container>
 			<View>
-			<Text style={{fontSize:20, margin:20, textAlign: 'center'}}> This is the Home Page </Text>
+			<Header>
+          	<Left>
+            <Title style={{fontFamily:'Gill Sans'}}>Home</Title>
+            </Left>
+          	<Body>
+          	</Body>
+          	<Right />
+          	</Header>
 			<Button style={{margin:5}}
 			block
 			rounded

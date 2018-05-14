@@ -15,11 +15,10 @@ export default class Nav extends Component{
 		const { navigate } = this.props.navigation;
 		return(
 		<Container>
-			<Text style={{fontSize:20, margin:20}}> This is the Home Page </Text>
 			<Button
 			warning
 			onPress={
-				() => navigate('Post', {name: 'Testing123'})
+				() => navigate('Post')
 			}>
 			<Text style={{color:'white', margin:5}}>To New Posts</Text>
 			</Button>

@@ -3,7 +3,7 @@ import { AppRegistry, View, ScrollView } from 'react-native';
 import App from '../App';
 import Comments from './Comments';
 import { Container, Header, DeckSwiper, Card, CardItem, Thumbnail, Text, Left, Body, Button,
- List, ListItem, Form, Textarea } from 'native-base';
+ List, ListItem, Form, Textarea, Title, Right } from 'native-base';
 import * as firebase from 'firebase';
 
 export default class Search extends Component {
@@ -63,6 +63,14 @@ updateCommentsList = (newComment, key) => {
     return(
       <Container>
         <View>
+        <Header>
+          <Left>
+          <Title style={{fontFamily:'Gill Sans'}}>Posts</Title>
+          </Left>
+          <Body>
+          </Body>
+          <Right />
+          </Header>
           <DeckSwiper
             dataSource={this.state.posts}
             renderItem={item =>
@@ -70,7 +78,6 @@ updateCommentsList = (newComment, key) => {
                 <CardItem>
                   <Left>
                     <Body>
-                    <Text style={{textAlign: 'center', fontSize:30}}> Posts </Text>
                     </Body>
                   </Left>
                 </CardItem>

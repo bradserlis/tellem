@@ -7,9 +7,6 @@ import { createStackNavigator, StackNavigator, TabNavigator } from 'react-naviga
 import { Container, Content, Header, Form, Input, Item, Button, Label } from 'native-base';
 import { AppRegistry, Text, View } from 'react-native';
 
-
-
-
 const Router = StackNavigator({
 	Home: {
 		screen: Home

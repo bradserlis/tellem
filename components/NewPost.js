@@ -52,9 +52,10 @@ let key = firebase.database().ref('/posts').push().key
 
       <Container>
         	<Header>
-          	<Left />
-          	<Body>
-            <Title>New Post</Title>
+          	<Left>
+            <Title style={{fontFamily:'Gill Sans'}}>New Post</Title>
+            </Left>
+            <Body>
             <Subtitle> Create your new post </Subtitle>
           	</Body>
           	<Right />
@@ -68,7 +69,6 @@ let key = firebase.database().ref('/posts').push().key
              onChangeText={(postContent) => this.setState({ postContent })}
              placeholder="Enter new post here..."
             />
-			<Text style={{fontSize:10, color:'red', marginTop:30}}> {this.state.postContent}</Text>
 				<Button style={{marginTop: 10}}
 		        full
 		        rounded
@@ -80,24 +80,7 @@ let key = firebase.database().ref('/posts').push().key
           </Form>
         </Content>
 
-        <Content>
-        <List
-        dataSource={this.ds.cloneWithRows(this.state.listViewData)}
-        renderRow={data=>
-        	<ListItem>
-        	<Text> {data} </Text>
-        	</ListItem>
-        }
-        renderLeftHiddenRow={data=>
-        	<Button full>
-        	</Button>
-        }
-        renderRightHiddenRow={data=>
-        	<Button full danger>
-        	</Button>
-        }
-        />
-        </Content>
+        
       </Container>
     );
   }
