@@ -44,7 +44,6 @@ let key = firebase.database().ref('/posts').push().key
 
 	postSubmit = (e)=>{
 		console.log('form was submitted', this.state)
-		console.log('here is the database details:', this.props.config )
 	}
 	render(){
 		

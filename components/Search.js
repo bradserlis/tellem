@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { AppRegistry, View } from 'react-native';
 import App from '../App';
-import { Container, Header, DeckSwiper, Card, CardItem, Thumbnail, Text, Left, Body, Button } from 'native-base';
+import { Container, Header, DeckSwiper, Card, CardItem, Thumbnail, Text, Left, Body, Button,
+ List, ListItem, Form, Textarea } from 'native-base';
 import * as firebase from 'firebase';
 
 export default class Search extends Component {
@@ -23,10 +24,17 @@ export default class Search extends Component {
       newList.push(snapshot.val());
       console.log('new list is: ', newList)
       that.setState({
-        posts: newList
+        posts: newList,
+        newComment: ''
       })
     })
   } 
+
+  addComment= () =>{
+   
+    console.log('this is the key: ', this.state.posts.messageKey )
+    // firebase.database().ref('/'+ key).child('comments').push(this.state.newComment)
+  }
 
     
   render() {
@@ -58,18 +66,32 @@ export default class Search extends Component {
                 </CardItem>
                   <CardItem>
                   <Text style={{fontStyle:'italic', fontFamily:'AvenirNext-Italic'}}>{item.message}</Text>
-                  <Text style={{fontStyle:'italic', fontFamily:'AvenirNext-Italic'}}>{item.messageKey}</Text>
-                  <View>
-                    {mappedComments}
-                  </View>
                 </CardItem>
+                <View
+                style={{
+                  borderBottomColor: 'black',
+                  borderBottomWidth: .5,
+                  marginBottom: 15
+                  }}
+                 />
+                  {mappedComments}
+                  <Form>
+            <Textarea
+            style={{backgroundColor:'white'}}
+             rowSpan={5}
+             bordered
+             onChangeText={(newComment) => this.setState({ newComment })}
+             placeholder="Enter comment here..."
+            />
                 <Button style={{alignSelf: 'center', margin:20}}
-
+                onPress={() => this.addComment()}
                 warning
                 rounded
                 >
                 <Text style={{fontSize:12, fontWeight:'bold'}}> Add a Comment </Text>
                 </Button>
+            <Text style={{fontSize:10, color:'red', marginTop:30}}> {this.state.newComment}</Text>
+            </Form>
               </Card>
             }
           />
@@ -78,5 +100,7 @@ export default class Search extends Component {
     );
   } // close render
 }
+
+
 
 AppRegistry.registerComponent('Search', () => Search);
