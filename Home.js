@@ -6,9 +6,6 @@ import { Container, Content, Header, Form, Input, Item, Button, Label } from 'na
 export default class Home extends Component{
 	constructor(){
 		super();
-		this.state = {
-			name:'brad'
-		}
 	}
 	render(){
 		const { navigate } = this.props.navigation;
