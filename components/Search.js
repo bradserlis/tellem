@@ -9,7 +9,8 @@ export default class Search extends Component {
   constructor(props){
     super(props)
     this.state = {
-      posts: []
+      posts: [],
+      newComment: ''
     }
     // this.componentWillMount = this.componentWillMount.bind(this)
   }
@@ -25,14 +26,15 @@ export default class Search extends Component {
       console.log('new list is: ', newList)
       that.setState({
         posts: newList,
-        newComment: ''
       })
     })
   } 
 
   addComment= () =>{
-   
-    console.log('this is the key: ', this.state.posts.messageKey )
+   key = this.state.posts[0].messageKey;
+    console.log('this is the key: ', key)
+    firebase.database().ref('/'+key).child('comments').push(this.state.newComment);
+
     // firebase.database().ref('/'+ key).child('comments').push(this.state.newComment)
   }
 
@@ -78,10 +80,10 @@ export default class Search extends Component {
                   <Form>
             <Textarea
             style={{backgroundColor:'white'}}
-             rowSpan={5}
+             rowSpan={4}
              bordered
              onChangeText={(newComment) => this.setState({ newComment })}
-             placeholder="Enter comment here..."
+             placeholder="Enter new comment here..."
             />
                 <Button style={{alignSelf: 'center', margin:20}}
                 onPress={() => this.addComment()}
