@@ -53,7 +53,7 @@ let key = firebase.database().ref('/posts').push().key
       <Container>
         	<Header>
           	<Left>
-            <Title style={{fontFamily:'Gill Sans'}}>New Post</Title>
+            <Title style={{fontFamily:'Gill Sans', fontSize:20}}>New Post</Title>
             </Left>
             <Body>
             <Subtitle> Create your new post </Subtitle>

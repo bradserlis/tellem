@@ -65,7 +65,7 @@ updateCommentsList = (newComment, key) => {
         <View>
         <Header>
           <Left>
-          <Title style={{fontFamily:'Gill Sans'}}>Posts</Title>
+          <Title style={{fontFamily:'Gill Sans', fontSize:20}}>Posts</Title>
           </Left>
           <Body>
           </Body>

@@ -19,7 +19,7 @@ export default class Comments extends Component {
 	  }
 
 	render() {
-		let commentArr = this.props.comments ? Object.values(this.props.comments) : [];
+		let commentArr = this.props.comments ? Object.values(this.props.comments) : {};
 		// console.log('rendering comments component', this.props);
 
 		let commentText = <View><Text>Be the first to comment!</Text></View>
@@ -27,6 +27,12 @@ export default class Comments extends Component {
 			return (
 				<View>
 					<Text key={i}>{c}</Text>
+					<View
+					  style={{
+					    borderBottomColor: '#0088',
+					    borderBottomWidth: 1,
+					  }}
+					/>
 				</View>
 				);
 		});
