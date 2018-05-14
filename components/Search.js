@@ -31,9 +31,13 @@ export default class Search extends Component {
   } 
 
   addComment= () =>{
-   key = this.state.posts[0].messageKey;
+   key = this.state.posts[4].messageKey;
     console.log('this is the key: ', key)
     firebase.database().ref('/'+key).child('comments').push(this.state.newComment);
+    this.setState({
+      newComment: ''
+    })
+
 
     // firebase.database().ref('/'+ key).child('comments').push(this.state.newComment)
   }
@@ -44,10 +48,6 @@ export default class Search extends Component {
     
     console.log('this is post: ', post)
     let commentsArray = Object.values(post.comments)
-    // console.log('this is commentsArray:', commentsArray)
-    // console.log(commentsArray[0])
-    // var reallyNow = Array.from(commentsArray)
-
     var mappedComments = commentsArray.map( function(comment, index) {
       return <Text key={index}>{comment}</Text>;
     })
