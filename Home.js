@@ -23,8 +23,8 @@ export default class Home extends Component{
           	</Header>
           	</View>
           	<View>
-          	<Text> </Text>
-			<Button style={{margin:50, marginTop:100}}
+          	<Text style={styles.helpText}> Start by posting a new question </Text>
+			<Button style={{margin:50, marginTop:50}}
 			block
 			rounded
 			iconLeft
@@ -36,6 +36,7 @@ export default class Home extends Component{
 			</Button>
 			</View>
 			<View>
+			<Text style={styles.helpText}>Or view questions others created, and leave your feedback</Text>
 			<Button style={{margin:50}}
 			block
 			rounded
@@ -53,6 +54,12 @@ export default class Home extends Component{
 }
 
 const styles = StyleSheet.create({
+  helpText:{
+  	fontSize:20,
+  	textAlign:'center',
+  	marginTop: 20,
+  	fontStyle:'italic'
+  },
   overlay:{
   	backgroundColor:'rgba(0,0,0,.2)',
   	height: window.height,
