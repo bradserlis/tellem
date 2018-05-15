@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { AppRegistry, Text, View, StyleSheet} from 'react-native';
 import { Container, Content, Header, Form, Input, Item, Button,
- Label, Left, Body, Right, Title } from 'native-base';
+ Label, Left, Body, Right, Title, H3, H2 } from 'native-base';
 
 
 export default class Home extends Component{
@@ -11,7 +11,7 @@ export default class Home extends Component{
 	render(){
 		const { navigate } = this.props.navigation;
 		return(
-			<Container>
+			<Container style={{backgroundColor:'transparent'}}>
 			<View>
 			<Header>
           	<Left>
@@ -21,6 +21,9 @@ export default class Home extends Component{
           	</Body>
           	<Right />
           	</Header>
+          	</View>
+          	<View>
+          	<Text> </Text>
 			<Button style={{margin:50, marginTop:100}}
 			block
 			rounded

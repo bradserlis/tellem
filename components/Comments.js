@@ -16,6 +16,9 @@ export default class Comments extends Component {
 	    key = this.props.messageKey;
 	    // console.log('this is the key: ', key);
 	    this.props.updateCommentsList(this.state.newComment, key);
+	    this.setState({
+	    	newComment:''
+	    })
 	  }
 
 	render() {
@@ -50,11 +53,13 @@ export default class Comments extends Component {
 	            <Form>
 		            <Textarea
 		            style={{backgroundColor:'white'}}
+		             id="commentInput"
 		             rowSpan={4}
 		             bordered
 		             onChangeText={(newComment) => this.setState({ newComment: newComment })}
-		             placeholder="Enter new comment here..."
-		            />
+		             placeholder="Enter new comment here..." 
+		             value={this.state.newComment}
+		             />
 		            <Button style={{alignSelf: 'center', margin:20}}
 		                onPress={() => this.addComment()}
 		                warning
@@ -62,7 +67,6 @@ export default class Comments extends Component {
 		                >
 		              <Text style={{fontSize:12, fontWeight:'bold'}}> Add a Comment </Text>
 		            </Button>
-		            <Text style={{fontSize:10, color:'red', marginTop:30}}> {this.state.newComment}</Text>
 		        </Form>
 			</View>
 			);
