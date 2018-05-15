@@ -13,6 +13,13 @@ export default class Nav extends Component{
 		return(
 		<Container>
 			<Button
+			success
+			onPress={
+				() => navigate('Home')
+			}>
+			<Text style={{color:'white', margin:5}}>To New Posts</Text>
+			</Button>
+			<Button
 			warning
 			onPress={
 				() => navigate('Post')
