@@ -18,7 +18,6 @@ var firebaseconfig = {
   };
   firebase.initializeApp(firebaseconfig);
 
-var data=['person1', 'person2'];
 
 export default class NewPost extends Component{
 
@@ -26,28 +25,26 @@ export default class NewPost extends Component{
 		super(props);
 		this.state = {
 			postContent:''
-		}
+    }
+  }
 
-		this.ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
-		this.state = {
-			listViewData: data,
-			newContact: ''
-		}
-	}
-
-	addPost= () =>{
+  addPost= () =>{
+const { navigate } = this.props.navigation;
 let key = firebase.database().ref('/posts').push().key
     firebase.database().ref('/').child(key).child('message').set(this.state.postContent)
     // firebase.database().ref('/').child(key).child('comments').push('')
     firebase.database().ref('/').child(key).child('messageKey').set(key)
-    
-	}
+    this.setState({
+      postContent:''
+    })
+    navigate('Home')
+  }
 
-	postSubmit = (e)=>{
-		console.log('form was submitted', this.state)
-	}
-	render(){
-		
+  postSubmit = (e)=>{
+    console.log('form was submitted', this.state)
+  }
+  render(){
+
 		return(
 
       <Container>
@@ -68,6 +65,7 @@ let key = firebase.database().ref('/posts').push().key
              bordered
              onChangeText={(postContent) => this.setState({ postContent })}
              placeholder="Enter new post here..."
+             value={this.state.postContent}
             />
 				<Button style={{marginTop: 10}}
 		        full
