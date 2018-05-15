@@ -16,13 +16,12 @@ import {
 
 import * as firebase from 'firebase';
 import Home from "./Home";
+import Landing from "./Landing";
 import Search from "./components/Search";
 import NewPost from './components/NewPost'
 import Router from './routes/Router';
 import Nav from './routes/Nav'
 import styles from './styles'
-
-
 
 
 import { Container, Content, Header, Form, Input, Item, Title, Button, Label, Left, Body, Right } from 'native-base';
@@ -35,12 +34,12 @@ export default class App extends Component {
   render() {
     return (
       <Container>
-      <View style={{flex:1}}>
-      <ImageBackground style={{flex:1, resizeMode:'cover', height: null, width: null}}
+      <ImageBackground
+       style={{flex:1, resizeMode:'cover', width: window.width, 
+        height: window.height}}
       source={require('./img/rough_diagonal.png')}>
       <Router />
       </ImageBackground>
-      </View>
       </Container>
     );
   }

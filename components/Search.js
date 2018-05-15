@@ -63,13 +63,13 @@ updateCommentsList = (newComment, key) => {
     return(
       <Container>
         <View>
-        <Header>
-          <Left>
-          <Title style={{fontFamily:'Gill Sans', fontSize:20}}>Posts</Title>
-          </Left>
-          <Body>
-          </Body>
-          <Right />
+          <Header>
+            <Left>
+              <Title style={{fontFamily:'Gill Sans', fontSize:20}}>Posts</Title>
+            </Left>
+            <Body>
+            </Body>
+            <Right />
           </Header>
           <DeckSwiper
             dataSource={this.state.posts}
@@ -81,7 +81,7 @@ updateCommentsList = (newComment, key) => {
                     </Body>
                   </Left>
                 </CardItem>
-                  <CardItem>
+                <CardItem>
                   <ScrollView>
                     <Text style={{fontStyle:'italic', fontFamily:'AvenirNext-Italic'}}>{item.message}</Text>
                   </ScrollView>
@@ -94,8 +94,7 @@ updateCommentsList = (newComment, key) => {
                   }}
                  />
                  <Comments comments={item.comments} messageKey={item.messageKey} updateCommentsList={this.updateCommentsList} />
-
-            </Card>
+              </Card>
             }
           />
         </View>
