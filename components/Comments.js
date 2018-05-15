@@ -29,7 +29,7 @@ export default class Comments extends Component {
 		commentText = commentArr.map((c, i) => {
 			return (
 				<View>
-					<Text key={i}>{c}</Text>
+					<Text style={{color:'white', fontWeight:'600'}}key={i}>{c}</Text>
 					<View
 					  style={{
 					    borderBottomColor: '#0088',
@@ -40,7 +40,7 @@ export default class Comments extends Component {
 				);
 		});
 		return (
-			<View>
+			<View style={{backgroundColor:'transparent'}}>
 				<Text>COMMENTS:</Text>
 				{commentText}
 				<View
@@ -52,7 +52,7 @@ export default class Comments extends Component {
                  />
 	            <Form>
 		            <Textarea
-		            style={{backgroundColor:'white'}}
+		            style={{backgroundColor:'rgba(255, 255, 255, .8)'}}
 		             id="commentInput"
 		             rowSpan={4}
 		             bordered

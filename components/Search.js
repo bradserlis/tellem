@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry, View, ScrollView } from 'react-native';
+import { AppRegistry, View, ScrollView, ImageBackground } from 'react-native';
 import App from '../App';
 import Comments from './Comments';
 import { Container, Header, DeckSwiper, Card, CardItem, Thumbnail, Text, Left, Body, Button,
@@ -61,11 +61,16 @@ updateCommentsList = (newComment, key) => {
     })
 
     return(
-      <Container style={{backgroundColor:'rgba(255, 255, 80, .5)'}}>
+      <ImageBackground
+       style={{flex:1, width: window.width, 
+        height: window.height}}
+      source={require('../img/backdrop.jpg')}>
+      <Container>
+  
         <View>
           <Header>
             <Left>
-              <Title style={{fontFamily:'Gill Sans', fontSize:20, color:'rgba(255,  200, 80, 1)', fontWeight:'bold'}}>Posts</Title>
+              <Title style={{fontFamily:'Gill Sans', fontSize:20, color:'rgba(255,  180, 80, 1)', fontWeight:'bold'}}>Posts</Title>
             </Left>
             <Body>
             </Body>
@@ -74,16 +79,16 @@ updateCommentsList = (newComment, key) => {
           <DeckSwiper
             dataSource={this.state.posts}
             renderItem={item =>
-              <Card style={{ elevation: 5, height:450}}>
+              <Card style={{ elevation: 5, height:450, backgroundColor:'transparent'}}>
                 <CardItem>
                   <Left>
                     <Body>
                     </Body>
                   </Left>
                 </CardItem>
-                <CardItem>
+                <CardItem style={{backgroundColor:'transparent'}}>
                   <ScrollView>
-                    <Text style={{fontStyle:'italic', fontFamily:'AvenirNext-Italic'}}>{item.message}</Text>
+                    <Text style={{fontStyle:'italic', fontFamily:'AvenirNext-Italic', color:'white', fontWeight:'500'}}>{item.message}</Text>
                   </ScrollView>
                 </CardItem>
                 <View
@@ -101,6 +106,7 @@ updateCommentsList = (newComment, key) => {
           />
         </View>
       </Container>
+      </ImageBackground>
     );
   } // close render
 }

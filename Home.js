@@ -15,7 +15,7 @@ export default class Home extends Component{
 			<View>
 			<Header>
           	<Left>
-            <Title style={{fontFamily:'Gill Sans', fontSize:20, color:'rgba(255,  200, 80, 1)', fontWeight:'bold'}}>Home</Title>
+            <Title style={{fontFamily:'Gill Sans', fontSize:20, color:'rgba(255,  180, 80, 1)', fontWeight:'bold'}}>Home</Title>
             </Left>
           	<Body>
           	</Body>
