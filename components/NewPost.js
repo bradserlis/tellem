@@ -48,7 +48,7 @@ let key = firebase.database().ref('/posts').push().key
       <ImageBackground
        style={{flex:1, width: window.width, 
         height: window.height}}
-      source={require('../img/backdrop.jpg')}>
+      source={require('../img/backdrop2.jpg')}>
       <Container>
         	<Header>
           	<Left>

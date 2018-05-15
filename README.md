@@ -1,7 +1,7 @@
 # Credits
 
-Photo by Carlos Domínguez on Unsplash @ https://unsplash.com/photos/yiZ5yaKcyG0
-
+Photo by Carlos Domínguez on Unsplash @ https://unsplash.com/photos/yiZ5yaKcyG0,
+Photo by Scott Webb on Unsplash @ https://unsplash.com/photos/OxHPDs4WV8Y
 # TellEm
 
 [Try TellEm now!](https://jam-mate.herokuapp.com "JamMate")

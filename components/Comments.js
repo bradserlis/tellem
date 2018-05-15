@@ -29,7 +29,7 @@ export default class Comments extends Component {
 		commentText = commentArr.map((c, i) => {
 			return (
 				<View>
-					<Text style={{color:'white', fontWeight:'600'}}key={i}>{c}</Text>
+					<Text style={{color:'white', fontWeight:'600', padding:8}}key={i}>{c}</Text>
 					<View
 					  style={{
 					    borderBottomColor: 'black',
