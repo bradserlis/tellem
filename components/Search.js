@@ -93,7 +93,9 @@ updateCommentsList = (newComment, key) => {
                   marginBottom: 15
                   }}
                  />
-                 <Comments comments={item.comments} messageKey={item.messageKey} updateCommentsList={this.updateCommentsList} />
+                 <ScrollView>
+                 <Comments comments={item.comments} messageKey={item.messageKey} updateCommentsList={this.updateCommentsList} />                                
+                 </ScrollView>
               </Card>
             }
           />
