@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry, Text, View, ListView } from 'react-native';
+import { AppRegistry, Text, View, ListView, ImageBackground } from 'react-native';
 import { Container, Content, Header, Form, Input, Icon,
 	Item, Button, Label, Textarea, Body,
 	 Left, Right, Title, Subtitle, List,
@@ -45,8 +45,11 @@ let key = firebase.database().ref('/posts').push().key
   render(){
 
 		return(
-
-      <Container style={{backgroundColor:'rgba(0, 10, 10, .3)'}}>
+      <ImageBackground
+       style={{flex:1, width: window.width, 
+        height: window.height}}
+      source={require('../img/backdrop.jpg')}>
+      <Container>
         	<Header>
           	<Left>
             <Title style={{fontFamily:'Gill Sans', fontSize:20, color:'rgba(255,  180, 80, 1)', fontWeight:'bold'}}>New Post</Title>
@@ -79,6 +82,7 @@ let key = firebase.database().ref('/posts').push().key
 
         
       </Container>
+      </ImageBackground>
     );
   }
 }

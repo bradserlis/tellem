@@ -32,7 +32,7 @@ export default class Comments extends Component {
 					<Text style={{color:'white', fontWeight:'600'}}key={i}>{c}</Text>
 					<View
 					  style={{
-					    borderBottomColor: '#0088',
+					    borderBottomColor: 'black',
 					    borderBottomWidth: 1,
 					  }}
 					/>

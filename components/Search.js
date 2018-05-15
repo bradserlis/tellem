@@ -79,7 +79,7 @@ updateCommentsList = (newComment, key) => {
           <DeckSwiper
             dataSource={this.state.posts}
             renderItem={item =>
-              <Card style={{ elevation: 5, height:450, backgroundColor:'transparent'}}>
+              <Card style={{ elevation: 5, height:470, backgroundColor:'rgba(150,150,150,.8)'}}>
                 <CardItem>
                   <Left>
                     <Body>
