@@ -21,17 +21,16 @@ TellEm is an anonymous community-centric forum for asking questions about the re
 
 
 # Proposal
-Most importantly, I wanted anonymity, so that you could ask whichever questions you had on your mind. Your responses, too, needed to be anonymous, so that you felt encouraged to contribute right away.
+ Create an app that encourages opinion-sharing towards navigating relationship questions. When a friend isn't sitting in the room to hear you out and offer their advice, turn to your community on the app for support.
 
-I wanted to use react-native to create a truly mobile-centered app. Some of the stretch goals included the ability to receive push notifications when a user's post received a comment, and gamifying participation (through 'level-ups' by posting  questions and leaving comments that are well-received).
-
+ Some of the stretch goals included the ability to receive push notifications when a user's post received a comment, and gamifying participation (through 'level-ups' by posting  questions and leaving comments that are well-received).
 
 # Technology
-React-Native (Native Base, React Navigation), FireBase, JavaScript 
+React Native (Native Base, React Navigation), FireBase, JavaScript 
 
 
 # Approach Taken
-
+Most importantly, I wanted anonymity, so that you could ask whichever questions you had on your mind. Your responses, too, needed to be anonymous, so that you felt encouraged to contribute right away. I  used react-native to create a truly mobile-centered app so that it had the opportunity for easy app store integration in the future.
 
 
 # Unsolved
