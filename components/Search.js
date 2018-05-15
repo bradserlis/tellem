@@ -61,11 +61,11 @@ updateCommentsList = (newComment, key) => {
     })
 
     return(
-      <Container>
+      <Container style={{backgroundColor:'rgba(255, 255, 80, .5)'}}>
         <View>
           <Header>
             <Left>
-              <Title style={{fontFamily:'Gill Sans', fontSize:20}}>Posts</Title>
+              <Title style={{fontFamily:'Gill Sans', fontSize:20, color:'rgba(255,  200, 80, 1)', fontWeight:'bold'}}>Posts</Title>
             </Left>
             <Body>
             </Body>

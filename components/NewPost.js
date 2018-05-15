@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { AppRegistry, Text, View, ListView } from 'react-native';
-import App from '../App';
 import { Container, Content, Header, Form, Input, Icon,
 	Item, Button, Label, Textarea, Body,
 	 Left, Right, Title, Subtitle, List,
@@ -47,10 +46,10 @@ let key = firebase.database().ref('/posts').push().key
 
 		return(
 
-      <Container>
+      <Container style={{backgroundColor:'rgba(0, 10, 10, .3)'}}>
         	<Header>
           	<Left>
-            <Title style={{fontFamily:'Gill Sans', fontSize:20}}>New Post</Title>
+            <Title style={{fontFamily:'Gill Sans', fontSize:20, color:'rgba(255,  200, 80, 1)', fontWeight:'bold'}}>New Post</Title>
             </Left>
             <Body>
             <Subtitle> Create your new post </Subtitle>

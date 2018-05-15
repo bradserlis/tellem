@@ -11,11 +11,11 @@ export default class Home extends Component{
 	render(){
 		const { navigate } = this.props.navigation;
 		return(
-			<Container style={{backgroundColor:'transparent'}}>
+			<Container>
 			<View>
 			<Header>
           	<Left>
-            <Title style={{fontFamily:'Gill Sans', fontSize:20}}>Home</Title>
+            <Title style={{fontFamily:'Gill Sans', fontSize:20, color:'rgba(255,  200, 80, 1)', fontWeight:'bold'}}>Home</Title>
             </Left>
           	<Body>
           	</Body>
