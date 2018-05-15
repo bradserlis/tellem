@@ -34,7 +34,7 @@ export default class App extends Component {
   render() {
     return (
       <ImageBackground
-       style={{flex:1, resizeMode:'cover', width: window.width, 
+       style={{flex:1, width: window.width, 
         height: window.height}}
       source={require('./img/rough_diagonal.png')}>
       <Router />
