@@ -1,4 +1,7 @@
 {
   "name": "TellEm",
-  "displayName": "TellEm"
+  "displayName": "TellEm",
+  "expo": {
+  	"sdkVersion": "27.0.0"
+  }
 }

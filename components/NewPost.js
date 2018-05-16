@@ -31,7 +31,8 @@ export default class NewPost extends Component{
 const { navigate } = this.props.navigation;
 let key = firebase.database().ref('/posts').push().key
     firebase.database().ref('/').child(key).child('message').set(this.state.postContent)
-    // firebase.database().ref('/').child(key).child('comments').push('')
+    firebase.database().ref('/').child(key).child('comments').push('')
+    firebase.database().ref('/').child(key).child('comments').push('')
     firebase.database().ref('/').child(key).child('messageKey').set(key)
     this.setState({
       postContent:''

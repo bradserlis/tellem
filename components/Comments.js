@@ -26,19 +26,22 @@ export default class Comments extends Component {
 		// console.log('rendering comments component', this.props);
 
 		let commentText = <View><Text>Be the first to comment!</Text></View>
-		commentText = commentArr.map((c, i) => {
-			return (
-				<View>
-					<Text style={{color:'white', fontWeight:'600', padding:8}}key={i}>{c}</Text>
-					<View
-					  style={{
+		if(this.props.comments){
+			commentText = commentArr.map((c, i) => {
+				return (
+					<View>
+						<Text style={{color:'white', fontWeight:'600', padding:8}}key={i}>{c}</Text>
+						<View
+					  	style={{
 					    borderBottomColor: 'black',
 					    borderBottomWidth: 1,
-					  }}
+					  	}}
 					/>
 				</View>
 				);
-		});
+			});
+		}
+			
 		return (
 			<View style={{backgroundColor:'transparent'}}>
 				<Text>COMMENTS:</Text>
