@@ -42,6 +42,8 @@ updateCommentsList = (newComment, key) => {
       return p.messageKey != key;
     });
 
+    console.log('post.comments is', post.comments)
+    post.comments = post.comments || {};
     post.comments[returnValue.key] = newComment;
     allPosts.push(post);
     this.setState({ posts: allPosts });

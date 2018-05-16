@@ -14,7 +14,7 @@ export default class Comments extends Component {
 
 	addComment = () =>{
 	    key = this.props.messageKey;
-	    // console.log('this is the key: ', key);
+	    console.log('adcomment: this is the key: ', key);
 	    this.props.updateCommentsList(this.state.newComment, key);
 	    this.setState({
 	    	newComment:''
@@ -29,8 +29,8 @@ export default class Comments extends Component {
 		if(this.props.comments){
 			commentText = commentArr.map((c, i) => {
 				return (
-					<View>
-						<Text style={{color:'white', fontWeight:'600', padding:8}}key={i}>{c}</Text>
+					<View key={i}>
+						<Text style={{color:'white', fontWeight:'600', padding:8}}>{c}</Text>
 						<View
 					  	style={{
 					    borderBottomColor: 'black',
@@ -45,14 +45,16 @@ export default class Comments extends Component {
 		return (
 			<View style={{backgroundColor:'transparent'}}>
 				<Text>COMMENTS:</Text>
-				{commentText}
-				<View
-                style={{
-                  borderBottomColor: 'black',
-                  borderBottomWidth: .5,
-                  marginBottom: 15
-                  }}
-                 />
+				<ScrollView>
+					{commentText}
+					<View
+	                style={{
+	                  borderBottomColor: 'black',
+	                  borderBottomWidth: .5,
+	                  marginBottom: 15
+	                  }}
+	                 />
+                 </ScrollView>
 	            <Form>
 		            <Textarea
 		            style={{backgroundColor:'rgba(255, 255, 255, .8)'}}
